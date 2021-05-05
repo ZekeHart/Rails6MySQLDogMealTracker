@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: %i[ show edit update destroy ]
-
+  
   skip_before_action :require_admin, only: [:index, :show]
 
   # GET /dogs or /dogs.json
@@ -68,4 +68,5 @@ class DogsController < ApplicationController
     def dog_params
       params.require(:dog).permit(:name, :age, :color, :weight, :owner_id, :discarded_at)
     end
+
 end
