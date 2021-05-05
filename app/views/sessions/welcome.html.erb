@@ -1,2 +1,13 @@
-<h1>Sessions#welcome</h1>
-<p>Find me in app/views/sessions/welcome.html.erb</p>
+<h1>Welcome To The Dog Meal Tracker!</h1>
+
+<% if logged_in? %>
+    <h1>You are Logged In, <%= current_user.username %></h1>
+    <% if is_admin? %>
+        <h1>As an admin!</h1>
+    <%end%>
+    <%=link_to 'Log Out', sessions_path, method: :delete%>
+<%else%>
+    <p>Please Login or Register to continue</p>
+    <%= button_to "Login", '/login', method: :get%>
+    <%= button_to "Register", '/users/new', method: :get%>
+<%end%>

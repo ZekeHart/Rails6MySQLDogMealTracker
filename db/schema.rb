@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_194955) do
+ActiveRecord::Schema.define(version: 2021_05_05_202716) do
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.string "password_digest"
     t.datetime "discarded_at"
     t.datetime "created_at", precision: 6, null: false
