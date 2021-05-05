@@ -16,7 +16,11 @@
 
   <tbody>
     <% @owners.each do |owner| %>
-      <tr>
+      <% if owner.discarded? %>
+        <tr class="deleted">
+      <% else %>
+        <tr>
+      <% end %>
         <td><%= owner.first_name %></td>
         <td><%= owner.last_name %></td>
         <td><%= owner.email %></td>
