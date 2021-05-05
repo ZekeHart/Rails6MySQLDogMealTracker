@@ -17,7 +17,11 @@
 
   <tbody>
     <% @meals.each do |meal| %>
-      <tr>
+      <% if meal.discarded? %>
+        <tr class="deleted">
+      <% else %>
+        <tr>
+      <% end %>
         <td><%= meal.brand %></td>
         <td><%= meal.quantity %></td>
         <td><%= meal.finished %></td>
@@ -31,6 +35,8 @@
     <% end %>
   </tbody>
 </table>
+
+<p>Deleted entries are shown with a <span class="deleted">red background.</span></p>
 
 <br>
 

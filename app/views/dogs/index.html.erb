@@ -17,7 +17,11 @@
 
   <tbody>
     <% @dogs.each do |dog| %>
-      <tr>
+      <% if dog.discarded? %>
+        <tr class="deleted">
+      <% else %>
+        <tr>
+      <% end %>
         <td><%= dog.name %></td>
         <td><%= dog.age %></td>
         <td><%= dog.color %></td>
@@ -31,6 +35,8 @@
     <% end %>
   </tbody>
 </table>
+
+<p>Deleted entries are shown with a <span class="deleted">red background.</span></p>
 
 <br>
 
