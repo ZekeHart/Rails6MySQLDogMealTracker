@@ -49,7 +49,7 @@ class OwnersController < ApplicationController
 
   # DELETE /owners/1 or /owners/1.json
   def destroy
-    @owner.destroy
+    @owner.discard
     respond_to do |format|
       format.html { redirect_to owners_url, notice: "Owner was successfully destroyed." }
       format.json { head :no_content }
