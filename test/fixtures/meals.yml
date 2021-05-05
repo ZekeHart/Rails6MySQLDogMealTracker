@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: MyString
+  quantity: 1
+  finished: false
+  finished_on: 2021-05-05 16:50:25
+  dog: one
+  discarded_at: 2021-05-05 16:50:25
+
+two:
+  brand: MyString
+  quantity: 1
+  finished: false
+  finished_on: 2021-05-05 16:50:25
+  dog: two
+  discarded_at: 2021-05-05 16:50:25
