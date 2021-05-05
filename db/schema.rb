@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_204532) do
+ActiveRecord::Schema.define(version: 2021_05_05_205025) do
 
   create_table "dogs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 2021_05_05_204532) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["discarded_at"], name: "index_dogs_on_discarded_at"
     t.index ["owner_id"], name: "index_dogs_on_owner_id"
+  end
+
+  create_table "meals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "brand"
+    t.integer "quantity"
+    t.boolean "finished"
+    t.timestamp "finished_on"
+    t.bigint "dog_id", null: false
+    t.datetime "discarded_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["discarded_at"], name: "index_meals_on_discarded_at"
+    t.index ["dog_id"], name: "index_meals_on_dog_id"
   end
 
   create_table "owners", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -47,4 +60,5 @@ ActiveRecord::Schema.define(version: 2021_05_05_204532) do
   end
 
   add_foreign_key "dogs", "owners"
+  add_foreign_key "meals", "dogs"
 end
