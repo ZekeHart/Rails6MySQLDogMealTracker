@@ -109,4 +109,47 @@ Dog.create!([{
 
 p "Created #{Dog.count} dogs"
 
+p "Creating meals..."
+Meal.destroy_all
+
+dog_ids = Dog.all.pluck(:id)
+
+Meal.create!([{
+    brand: "Kibbles",
+    quantity: 5,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[0],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: 2.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 3.days.ago,
+    dog_id: dog_ids[4],
+}])
+
+p "Created #{Meal.count} meals"
+
 p "Seeding Complete"
