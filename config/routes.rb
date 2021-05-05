@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dogs
   resources :owners
   root 'sessions#welcome'
   resources :users, only: [:new, :create]

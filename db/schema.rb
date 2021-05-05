@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_203657) do
+ActiveRecord::Schema.define(version: 2021_05_05_204532) do
+
+  create_table "dogs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "color"
+    t.float "weight"
+    t.bigint "owner_id", null: false
+    t.datetime "discarded_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["discarded_at"], name: "index_dogs_on_discarded_at"
+    t.index ["owner_id"], name: "index_dogs_on_owner_id"
+  end
 
   create_table "owners", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "first_name"
@@ -33,4 +46,5 @@ ActiveRecord::Schema.define(version: 2021_05_05_203657) do
     t.index ["discarded_at"], name: "index_users_on_discarded_at"
   end
 
+  add_foreign_key "dogs", "owners"
 end
