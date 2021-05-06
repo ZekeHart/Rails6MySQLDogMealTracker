@@ -1,7 +1,7 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: %i[ show edit update destroy ]
   
-  skip_before_action :require_admin, only: [:index, :show]
+  skip_before_action :require_admin, only: [:index, :show, :dog_report]
 
   # GET /dogs or /dogs.json
   def index
@@ -30,7 +30,7 @@ class DogsController < ApplicationController
     end
 
     @sorted_dogs = Dog.kept.order(@sort)
-    
+
   end
 
   # POST /dogs or /dogs.json
