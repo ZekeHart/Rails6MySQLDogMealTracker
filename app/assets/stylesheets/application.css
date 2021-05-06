@@ -13,14 +13,42 @@
  *= require_tree .
  *= require_self
  */
- .deleted {
+.deleted {
     background-color: #cf3636;
-  }
-  table {
+}
+table {
     border-collapse: collapse;
-  }
-  td, th {
+}
+td, th {
     border: 1px solid #999;
-    padding: 0.5rem;
+    padding: 0.5em;
     text-align: left;
-  }
+}
+.navigation ul { 
+    margin: .0; 
+    padding: .5em; 
+    list-style-type: none; 
+    text-align: center; 
+    background-color: #000; 
+} 
+
+.navigation ul li {  
+    display: inline; 
+} 
+
+.navigation ul li a { 
+    text-decoration: none; 
+    padding: .2em 1em; 
+    color: #fff; 
+    background-color: #000; 
+} 
+
+.navigation ul li a:hover { 
+    color: #000; 
+    background-color: #fff; 
+} 
+.title { 
+    padding: .5em;  
+    text-align: center;
+    font-size: 42pt;
+} 

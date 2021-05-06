@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <header class="navigation">
+    <h1 class="title">Dog Meal Tracker</h1>
+      <% if logged_in? %>
+        <ul>
+        <% if is_admin? %>
+            <li><%=link_to 'Owners', owners_path %></li>
+            <li><%=link_to 'Dogs', dogs_path %></li>
+            <li><%=link_to 'Meals', meals_path %></li>
+        <%else%>
+            <li><%=link_to 'Big Report', big_report_path %></li>
+            <li><%=link_to 'Owner Report', owner_report_path %></li>
+            <li><%=link_to 'Dog Report', dog_report_path %></li>
+        <%end%>
+          <li><%=link_to 'Log Out', sessions_path, method: :delete%></li>
+        </ul>
+      <%end%>
+    </header>
     <%= yield %>
   </body>
 </html>
