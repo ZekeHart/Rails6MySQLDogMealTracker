@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :meals, path: 'admin/meals'
-  resources :dogs, except: :show, path: 'admin/dogs'
-  resources :dogs, only: :show, path: 'reports/dogs'
+  resources :dogs, except: :dog_report, path: 'admin/dogs'
   resources :owners, except: :owner_report, path: 'admin/owners'  
   root 'sessions#welcome'
   resources :users, only: [:new, :create]
   get 'reports/owner_report', to: 'owners#owner_report'
+  get 'reports/dog_report', to: 'dogs#dog_report'
   get 'login', to: 'sessions#login', as: 'login'
   post 'login', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy'
