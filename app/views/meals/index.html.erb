@@ -26,7 +26,7 @@
         <td><%= meal.quantity %></td>
         <td><%= meal.finished %></td>
         <td><%= meal.finished_on %></td>
-        <td><%= meal.dog_id %></td>
+        <td><%= link_to meal.dog.name, dog_path(meal.dog_id) %></td>
         <td><%= meal.discarded_at %></td>
         <td><%= link_to 'Show', meal %></td>
         <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
