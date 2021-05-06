@@ -25,5 +25,33 @@
   <%= @owner.discarded_at %>
 </p>
 
+<h3>Dogs</h3>
+  <table>
+      <thead>
+          <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Color</th>
+          <th>Weight</th>
+          </tr>
+      </thead>
+
+      <tbody>
+          <% @owner.dogs.each do |dog| %>
+            <% if dog.discarded? %>
+              <tr class="deleted">
+            <% else %>
+              <tr>
+            <% end %>
+                <td><%= dog.name %></td>
+                <td><%= dog.age %></td>
+                <td><%= dog.color %></td>
+                <td><%= dog.weight %></td>
+            </tr>
+          <% end %>
+      </tbody>
+  </table>
+
+
 <%= link_to 'Edit', edit_owner_path(@owner) %> |
 <%= link_to 'Back', owners_path %>
