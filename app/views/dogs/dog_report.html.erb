@@ -35,7 +35,7 @@
         <td><%= dog.age %></td>
         <td><%= dog.color %></td>
         <td><%= dog.weight %></td>
-        <td><%= link_to dog.owner.first_name + " " + dog.owner.last_name, owner_path(dog.owner_id) %></td>
+        <td><%= dog.owner.first_name + " " + dog.owner.last_name %></td>
       </tr>
     <% end %>
   </tbody>
