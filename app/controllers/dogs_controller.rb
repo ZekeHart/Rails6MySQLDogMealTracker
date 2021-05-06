@@ -21,6 +21,18 @@ class DogsController < ApplicationController
   def edit
   end
 
+  def dog_report
+    @valid_sorts = ['weight', 'name', 'age']
+    if params[:sort]
+      @sort = params[:sort]
+    else
+      @sort = 'weight'
+    end
+
+    @sorted_dogs = Dog.kept.order(@sort)
+    
+  end
+
   # POST /dogs or /dogs.json
   def create
     @dog = Dog.new(dog_params)

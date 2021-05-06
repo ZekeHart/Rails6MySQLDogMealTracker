@@ -1,0 +1,42 @@
+<h1>Dog Report</h1>
+
+
+<div>
+    <p>Dogs sorted by:
+        <% @valid_sorts.each do |sort_type| %>
+            <% if @sort == sort_type %>
+                <strong><%= sort_type %></strong>
+            <% else %>
+            <a href="?sort=<%= sort_type %>"><%= sort_type %></a>
+            <% end %>
+        <% end %>
+    </p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Color</th>
+      <th>Weight</th>
+      <th>Owner</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sorted_dogs.each do |dog| %>
+      <% if dog.discarded? %>
+        <tr class="deleted">
+      <% else %>
+        <tr>
+      <% end %>
+        <td><%= dog.name %></td>
+        <td><%= dog.age %></td>
+        <td><%= dog.color %></td>
+        <td><%= dog.weight %></td>
+        <td><%= link_to dog.owner.first_name + " " + dog.owner.last_name, owner_path(dog.owner_id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
