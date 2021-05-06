@@ -30,6 +30,8 @@ $ rails db:seed
 $ rails s
 ```
 
+The seed file includes two users, an admin (username: Admin, passowrd: admin) and a regular user (username: User, password: user). The pages that you can navigate to are determined by your user type. Non-admin users can't see admin only pages even if they try to navigate directly to them, admin users currently do not have links to the reports pages but can view them if they type in the address.
+
 ## Known Bugs
 
 1. Sort/expand button bug on Big Report page. If you change how the report is sorted the buttons to expand and show the dogs' meals will not work until the page is manually reloaded. The window load event listener does not trigger after the sort links are used.
