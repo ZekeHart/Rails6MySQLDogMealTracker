@@ -2,19 +2,21 @@
 
 ## Overview
 
-This is a Rails 6 app with a mysql database that keeps track of dog owners, their dogs, and their dogs' meals. It includes basic user authentication and a seed for the databse is included so you can test it out.
+This is a Rails 6 app with a MySQL database that keeps track of dog owners, their dogs, and their dogs' meals. It includes basic user authentication and a seed for the databse is included so you can test it out.
 
 ## Setup
 
-I used asdf as a version manager so there is a .tool-versions file that includes the relevant Ruby, Yarn, and Node versions (3.0.1, 1.22.10, and 16.0.0 respectively). Additionally you will need mysql installed.
+I used asdf as a version manager so there is a .tool-versions file that includes the relevant Ruby, Yarn, and Node versions (3.0.1, 1.22.10, and 16.0.0 respectively). Additionally you will need MySQL installed.
 
 The database.yml file is not included, however there is a database.yml.example that can be used by removing the .example from the end and doing any necessary configuration for your local mysql database.
 
 ```bash
-$ git clone {{this repo}}
+$ git clone https://github.com/ZekeHart/Rails6MySQLDogMealTracker.git
+$ cd Rails6MySQLDogMealTracker
 $ bundle install
-$ yarn install (or npm install)
+$ yarn install
 ```
+
 Rename database.yml.example to database.yml and add any necessary password or other configuration
 
 ```bash
