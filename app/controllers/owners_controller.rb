@@ -25,6 +25,16 @@ class OwnersController < ApplicationController
   def edit
   end
 
+  def big_report
+    @valid_sorts = ['first_name', 'last_name', 'email']
+    if params[:sort]
+      @sort = params[:sort]
+    else
+      @sort = 'first_name'
+    end
+    @sorted_owners = Owner.kept.order(@sort)  
+  end
+
   # POST /owners or /owners.json
   def create
     @owner = Owner.new(owner_params)

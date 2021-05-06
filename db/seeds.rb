@@ -21,11 +21,6 @@ User.create!([{
     admin: true,
 },
 {
-    username: "Joey",
-    password: "joey",
-    admin: false,
-},
-{
     username: "User",
     password: "user",
     admin: false,
@@ -128,6 +123,27 @@ Dog.create!([{
     age: 6000,
     color: "red",
     weight: 666.66,
+    owner_id: owner_ids[4],
+},
+{
+    name: "Cat",
+    age: 5,
+    color: "brown",
+    weight: 5.2,
+    owner_id: owner_ids[2],
+},
+{
+    name: "Joseph",
+    age: 5,
+    color: "black",
+    weight: 45.2,
+    owner_id: owner_ids[3],
+},
+{
+    name: "Callie",
+    age: 14,
+    color: "red",
+    weight: 22.4,
     owner_id: owner_ids[4],
 },
 {

@@ -1,0 +1,69 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1>Big Report</h1>
+<div>
+    <p>Owners sorted by:
+        <% @valid_sorts.each do |sort_type| %>
+            <% if @sort == sort_type %>
+                <strong><%= sort_type %></strong>
+            <% else %>
+            <a href="?sort=<%= sort_type %>"><%= sort_type %></a>
+            <% end %>
+        <% end %>
+    </p>
+</div>
+
+<% @sorted_owners.kept.each do |owner| %>
+    <h2><%= owner.first_name + " " + owner.last_name%></h2>
+    <table class="dogs-table">
+        <caption>Dogs</caption>
+        <thead>
+            <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Color</th>
+            <th>Weight</th>
+            <th colspan="1"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% owner.dogs.kept.each do |dog| %>
+            <tr>
+                <td><%= dog.name %></td>
+                <td><%= dog.age %></td>
+                <td><%= dog.color %></td>
+                <td><%= dog.weight %></td>
+                <td><button class="show-meals" data-id="<%= dog.id %>">Show Meals</button></td>
+            </tr>
+
+              <td>
+                <table class="meals-table" id="<%= dog.id %>" style="display:none;">
+                    <caption><%= dog.name %>'s Meals:</caption>
+                    <thead>
+                    <tr>
+                        <th>Brand</th>
+                        <th>Quantity</th>
+                        <th>Finished</th>
+                        <th>Finished On</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <% dog.meals.order(finished_on: :desc).each do |meal| %>
+                        <tr>
+                            <td><%= meal.brand %></td>
+                            <td><%= meal.quantity %></td>
+                            <td><%= meal.finished %></td>
+                            <td><%= meal.finished_on %></td>
+                        </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+                </td>
+            <% end %>
+        </tbody>
+    </table>
+    <hr>
+<% end %>
