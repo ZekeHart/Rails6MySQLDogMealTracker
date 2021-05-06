@@ -1,8 +1,14 @@
 class OwnersController < ApplicationController
   before_action :set_owner, only: %i[ show edit update destroy ]
 
+  skip_before_action :require_admin, only: [:owner_report]
+
   # GET /owners or /owners.json
   def index
+    @owners = Owner.all
+  end
+
+  def owner_report
     @owners = Owner.all
   end
 
