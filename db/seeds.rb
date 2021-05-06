@@ -10,6 +10,9 @@
 p "Seeding..."
 
 p "Creating users..."
+Meal.destroy_all
+Dog.destroy_all
+Owner.destroy_all
 User.destroy_all
 
 User.create!([{
@@ -31,7 +34,7 @@ User.create!([{
 p "Created #{User.count} users"
 
 p "Creating owners..."
-Owner.destroy_all
+
 
 Owner.create!([{
     first_name: "Dirk",
@@ -67,7 +70,7 @@ Owner.create!([{
 p "Created #{Owner.count} owners"
 
 p "Creating dogs..."
-Dog.destroy_all
+
 
 owner_ids = Owner.all.pluck(:id)
 
@@ -79,17 +82,17 @@ Dog.create!([{
     owner_id: owner_ids[0],
 },
 {
-    name: "Spot2",
-    age: 5,
+    name: "Rover",
+    age: 12,
     color: "white",
-    weight: 45.2,
+    weight: 15.2,
     owner_id: owner_ids[0],
 },
 {
     name: "Spot3",
     age: 5,
     color: "brown",
-    weight: 45.2,
+    weight: 405.2,
     owner_id: owner_ids[1],
 },
 {
@@ -98,6 +101,41 @@ Dog.create!([{
     color: "black",
     weight: 45.2,
     owner_id: owner_ids[3],
+},
+{
+    name: "King",
+    age: 5,
+    color: "white",
+    weight: 45.2,
+    owner_id: owner_ids[0],
+},
+{
+    name: "Ralph",
+    age: 5,
+    color: "brown",
+    weight: 45.2,
+    owner_id: owner_ids[1],
+},
+{
+    name: "Joey",
+    age: 5,
+    color: "black",
+    weight: 45.2,
+    owner_id: owner_ids[3],
+},
+{
+    name: "Monster",
+    age: 6000,
+    color: "red",
+    weight: 666.66,
+    owner_id: owner_ids[4],
+},
+{
+    name: "Rufus",
+    age: 3,
+    color: "pink",
+    weight: 45.2,
+    owner_id: owner_ids[4],
 },
 {
     name: "Spot5",
@@ -110,7 +148,7 @@ Dog.create!([{
 p "Created #{Dog.count} dogs"
 
 p "Creating meals..."
-Meal.destroy_all
+
 
 dog_ids = Dog.all.pluck(:id)
 
@@ -125,7 +163,7 @@ Meal.create!([{
     brand: "Bits",
     quantity: 4,
     finished: false,
-    finished_on: 1.days.ago,
+    finished_on: nil,
     dog_id: dog_ids[1],
 },
 {
@@ -139,7 +177,343 @@ Meal.create!([{
     brand: "Crunch",
     quantity: 5,
     finished: false,
-    finished_on: 2.days.ago,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 5.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 1,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 16.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 14,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 8,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[9],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 11.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 10.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[5],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[7],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[9],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[7],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[7],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[7],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 14,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 8,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[9],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 11.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[1],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 10.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[5],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[7],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 1.days.ago,
+    dog_id: dog_ids[4],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[9],
+},
+{
+    brand: "Bits",
+    quantity: 4,
+    finished: false,
+    finished_on: nil,
+    dog_id: dog_ids[7],
+},
+{
+    brand: "Kibbles",
+    quantity: 2,
+    finished: true,
+    finished_on: 3.days.ago,
+    dog_id: dog_ids[8],
+},
+{
+    brand: "Crunch",
+    quantity: 5,
+    finished: false,
+    finished_on: nil,
     dog_id: dog_ids[4],
 },
 {
